@@ -1,0 +1,79 @@
+﻿@model TestCrud.EntityModel.Models.Usuarios
+
+@{
+    ViewBag.Title = "Detalle";
+}
+
+
+<h2>Detalle</h2>
+<div>
+    <h4>Usuarios</h4>
+    <hr />
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">Parámetros</li>
+            <li class="breadcrumb-item" aria-current="page"><a href="@Url.Action("Index", "Usuarios")">Usuarios</a></li>
+            <li class="breadcrumb-item active">Detalle</li>
+        </ol>
+    </nav>
+    @if (ViewData.ModelState.Any(x => x.Value.Errors.Any()))
+    {
+<div class="alert alert-danger">
+    <a href="#" class="close" data-dismiss="alert">×</a>
+    @Html.ValidationSummary()
+</div>} @*<div class="row">
+            <div class="col-6 col-md-4 font-weight-bold text-right">
+                <label asp-for="Cod_Usario"></label>
+            </div>
+            <div class="col-6 text-left">
+                @Html.DisplayFor(m => m.Cod_Usario)
+            </div>
+        </div> *@
+        <div class="row">
+            <div class="col-6 col-md-4 font-weight-bold text-right">
+                <label asp-for="Txt_User"></label>
+            </div>
+            <div class="col-6 text-left">
+                @Html.DisplayFor(m => m.Txt_User)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6 col-md-4 font-weight-bold text-right">
+                <label asp-for="Txt_Password"></label>
+            </div>
+            <div class="col-6 text-left">
+                @Html.DisplayFor(m => m.Txt_Password)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6 col-md-4 font-weight-bold text-right">
+                <label asp-for="Txt_Nombre"></label>
+            </div>
+            <div class="col-6 text-left">
+                @Html.DisplayFor(m => m.Txt_Nombre)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6 col-md-4 font-weight-bold text-right">
+                <label asp-for="Nro_Doc"></label>
+            </div>
+            <div class="col-6 text-left">
+                @Html.DisplayFor(m => m.Nro_Doc)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6 col-md-4 font-weight-bold text-right">
+                <label asp-for="CodRolNavigation.Txt_Desc"></label>
+            </div>
+            <div class="col-6 text-left">
+                @Html.DisplayFor(m => m.CodRolNavigation.Txt_Desc)
+            </div>
+        </div>
+
+
+        <a asp-action="Index" class="btn btn-secondary">Volver</a>
+
+    </div>
+    @section Scripts {
+        <script src="~/js/app/menuActivoParametros.js"></script>
+    }

@@ -1,0 +1,110 @@
+﻿@model TestCrud.EntityModel.Models.Usuarios
+
+@{
+    ViewBag.Title = "Editar";
+
+}
+
+<h2>Editar</h2>
+
+<h4>Usuarios</h4>
+<hr />
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">Parámetros</li>
+        <li class="breadcrumb-item" aria-current="page"><a href="@Url.Action("Index", "Usuarios")">Usuarios</a></li>
+        <li class="breadcrumb-item active">Editar</li>
+    </ol>
+</nav>
+<form asp-action="Edit">
+    <div class="form-horizontal" id="body-content">
+        <input type="hidden" asp-for="Cod_Usario" />
+        @if (ViewData.ModelState.Any(x => x.Key == "" && x.Value.Errors.Any()))
+        {
+    <div class="alert alert-danger">
+        <a href="#" class="close" data-dismiss="alert">×</a>
+        @Html.ValidationSummary(true, "Errores: ")
+    </div>} 
+        
+        <div class="form-group">
+                <label asp-for="Txt_User" class="control-label col-6 col-md-6"></label>
+                <div class="col-12 col-md-12 col-lg-8">
+                    <input asp-for="Txt_User" class="form-control form-control" />
+                </div>
+                <div class="col-md-12 col-12">
+                    <span asp-validation-for="Txt_User" class="text-danger"></span>
+                </div>
+            </div> 
+            <div class="form-group">
+                <label asp-for="Txt_Password" class="control-label col-6 col-md-6"></label>
+                <div class="col-12 col-md-12 col-lg-8">
+                    <input asp-for="Txt_Password" class="form-control form-control" />
+                </div>
+                <div class="col-md-12 col-12">
+                    <span asp-validation-for="Txt_Password" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Txt_Nombre" class="control-label col-6 col-md-6"></label>
+                <div class="col-12 col-md-12 col-lg-8">
+                    <input asp-for="Txt_Nombre" class="form-control form-control" />
+                </div>
+                <div class="col-md-12 col-12">
+                    <span asp-validation-for="Txt_Nombre" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Txt_Apellido" class="control-label col-6 col-md-6"></label>
+                <div class="col-12 col-md-12 col-lg-8">
+                    <input asp-for="Txt_Apellido" class="form-control form-control" />
+                </div>
+                <div class="col-md-12 col-12">
+                    <span asp-validation-for="Txt_Apellido" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Nro_Doc" class="control-label col-6 col-md-6"></label>
+                <div class="col-12 col-md-12 col-lg-8">
+                    <input asp-for="Nro_Doc" class="form-control form-control" />
+                </div>
+                <div class="col-md-12 col-12">
+                    <span asp-validation-for="Nro_Doc" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cod_Rol" class="control-label col-6 col-md-6"></label>
+                <div class="col-12 col-md-12 col-lg-8">
+                    <input asp-for="Cod_Rol" class="form-control form-control" />
+                </div>
+                <div class="col-md-12 col-12">
+                    <span asp-validation-for="Cod_Rol" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Sn_Activo" class="control-label col-6 col-md-6"></label>
+                <div class="col-12 col-md-12 col-lg-8">
+                    <input asp-for="Sn_Activo" class="form-control form-control" />
+                </div>
+                <div class="col-md-12 col-12">
+                    <span asp-validation-for="Sn_Activo" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-12 col-12 col-lg-8">
+                    <input type="submit" value="Guardar" class="btn btn-primary mb-2" />
+                    <a asp-action="Index" id="Volver" class="btn btn-secondary mb-2" data-toggle="confirmation"
+                       data-btn-ok-label="&nbsp;Sí" data-btn-cancel-label="&nbsp;No" data-btn-ok-icon-class="fa fa-check" data-btn-cancel-icon-class="fa fa-close"
+                       data-title="Salir sin guardar los cambios?">
+                        Volver
+                    </a>
+                </div>
+            </div>
+        </div>
+    </form>
+
+
+    @section Scripts {
+        @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+        <script src="~/js/app/utiles.js"></script>
+        <script src="~/js/app/menuActivoParametros.js"></script>
+    }
